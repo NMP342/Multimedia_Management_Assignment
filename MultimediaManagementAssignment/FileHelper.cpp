@@ -1,7 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include<string>
 #include<filesystem>
 #include "MediaFile.cpp"
+#define PATH "D:\\Training\\C++ From Basics To Advanced\\Multimedia_Management_Assignment\\Media"
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -10,11 +12,9 @@ namespace fs = std::filesystem;
 
 class FileHelper {
 public:
-
 	static void ReadMediaRoot(vector<MediaFile>& mediaList) {
-        string rootPath = "D:\\C_Plus_Projects\\MultimediaManagementAssignment\\Media";
 
-        for (const auto& typeEntry : fs::directory_iterator(rootPath))
+        for (const auto& typeEntry : fs::directory_iterator(PATH))
         {
             if (!typeEntry.is_directory())
                 continue;
@@ -48,6 +48,33 @@ public:
             }
         }
 	}
+
+    static void SaveMediaListToFile(
+        const std::vector<MediaFile>& mediaList)
+    {
+        string filePath = PATH;
+        filePath += "\\media_files_list.txt";
+        std::ofstream outFile(filePath);
+
+        if (!outFile.is_open())
+        {
+            std::cerr << filePath << '\n';
+            std::cerr << "Cannot open file for writing!\n";
+            return;
+        }
+
+        for (auto file : mediaList)
+        {
+            outFile
+                << file.getName() << "|"
+                << file.getSize() << "|"
+                << file.getType() << "|"
+                << file.getGenre() << "|"
+                << file.getDescription() << "\n";
+        }
+
+        outFile.close();
+    }
 
     static void PrintMediaList(const std::vector<MediaFile>& mediaList)
     {

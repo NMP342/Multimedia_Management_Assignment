@@ -10,6 +10,7 @@ int main()
 {
 	vector<MediaFile> mediaFilesList;
 	FileHelper::ReadMediaRoot(mediaFilesList);
+	FileHelper::SaveMediaListToFile(mediaFilesList);
 	FileHelper::PrintMediaList(mediaFilesList);
 }
 
