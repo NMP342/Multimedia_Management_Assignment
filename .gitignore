@@ -1,0 +1,17 @@
+*.vs
+*.filters
+*.user
+*.htm
+Debug
+Release
+x64
+x86
+MultimediaManagementAssignment\x64
+bin
+packages
+*Backup*
+.ionide
+*.bak
+*.cache
+*.log
+*.coverage

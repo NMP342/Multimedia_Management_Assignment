@@ -1,17 +1,27 @@
 // MultimediaManagementAssignment.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
-#include "FileHelper.cpp"
+#include "pch.h"
 
-using namespace std;
+static void PrintMediaList(const std::vector<MediaFile>& mediaList)
+{
+    for (MediaFile file : mediaList)
+    {
+        std::cout << "------------------------\n";
+        std::cout << "Name       : " << file.GetName() << "\n";
+        std::cout << "Size (KB)  : " << file.GetSize() << "\n";
+        std::cout << "Type       : " << file.GetType() << "\n";
+        std::cout << "Genre      : " << file.GetGenre() << "\n";
+        std::cout << "Description: " << file.GetDescription() << "\n";
+    }
+}
 
 int main()
 {
 	vector<MediaFile> mediaFilesList;
-	FileHelper::ReadMediaRoot(mediaFilesList);
+	FileHelper::ReadMediaFilesFromRootPath(mediaFilesList);
 	FileHelper::SaveMediaListToFile(mediaFilesList);
-	FileHelper::PrintMediaList(mediaFilesList);
+	PrintMediaList(mediaFilesList);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

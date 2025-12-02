@@ -1,62 +1,49 @@
-#include<string>
+#include "pch.h"
 
-using namespace std;
+string& MediaFile::GetName() {
+	return m_name;
+}
 
-class MediaFile {
-private:
-	string m_name{};
-	string m_type{};
-	string m_genre{};
-	int m_size{};
-	string m_description{};
-	string m_directory{};
+string& MediaFile::GetType() {
+	return m_type;
+}
 
-public:
-	string& getName() {
-		return m_name;
-	}
+string& MediaFile::GetGenre() {
+	return m_genre;
+}
 
-	void setName(string name) {
-		m_name = name;
-	}
+int& MediaFile::GetSize() {
+	return m_size;
+}
 
-	string& getType() {
-		return m_type;
-	}
+string& MediaFile::GetDescription() {
+	return m_description;
+}
 
-	void setType(string type) {
-		m_type = type;
-	}
+string& MediaFile::GetDirectory() {
+	return m_directory;
+}
 
-	string& getGenre() {
-		return m_genre;
-	}
+void MediaFile::SetName(string name) {
+	m_name = name;
+}
 
-	void setGenre(string genre) {
-		m_genre = genre;
-	}
+void MediaFile::SetType(string type) {
+	m_type = type;
+}
 
-	int& getSize() {
-		return m_size;
-	}
+void MediaFile::SetGenre(string genre) {
+	m_genre = genre;
+}
 
-	void setSize(int size) {
-		m_size = size;
-	}
+void MediaFile::SetSize(int size) {
+	m_size = size;
+}
 
-	string& getDescription() {
-		return m_description;
-	}
+void MediaFile::SetDescription(string description) {
+	m_description = description;
+}
 
-	void setDescription(string description) {
-		m_description = description;
-	}
-
-	string& getDirectory() {
-		return m_directory;
-	}
-
-	void setFirectory(string directory) {
-		m_directory = directory;
-	}
-};
+void MediaFile::SetDirectory(string directory) {
+	m_directory = directory;
+}

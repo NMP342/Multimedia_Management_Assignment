@@ -1,7 +1,9 @@
 #pragma once
-#include "MediaFile.h";
+
+using namespace std;
 
 class FileHelper {
 public:
-	static void ReadMediaRoot();
+	static void ReadMediaFilesFromRootPath(vector<MediaFile>& mediaList);
+	static void SaveMediaListToFile(const vector<MediaFile>& mediaList);
 };
