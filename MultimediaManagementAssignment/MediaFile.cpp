@@ -16,6 +16,10 @@ int& MediaFile::getSize() {
 	return _size;
 }
 
+int& MediaFile::getViewNumber() {
+	return _viewNumber;
+}
+
 string& MediaFile::getDescription() {
 	return _description;
 }
@@ -24,26 +28,30 @@ string& MediaFile::getDirectory() {
 	return _directory;
 }
 
-void MediaFile::setName(string name) {
+void MediaFile::setName(string& name) {
 	_name = name;
 }
 
-void MediaFile::setType(string type) {
+void MediaFile::setType(string& type) {
 	_type = type;
 }
 
-void MediaFile::setGenre(string genre) {
+void MediaFile::setGenre(string& genre) {
 	_genre = genre;
 }
 
-void MediaFile::setSize(int size) {
+void MediaFile::setSize(int& size) {
 	_size = size;
 }
 
-void MediaFile::setDescription(string description) {
+void MediaFile::setViewNumber(int& viewNumber) {
+	_viewNumber = viewNumber;
+}
+
+void MediaFile::setDescription(string& description) {
 	_description = description;
 }
 
-void MediaFile::setDirectory(string directory) {
+void MediaFile::setDirectory(string& directory) {
 	_directory = directory;
 }

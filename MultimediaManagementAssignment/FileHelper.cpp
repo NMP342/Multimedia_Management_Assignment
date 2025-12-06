@@ -23,12 +23,20 @@ void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 				if (!fileEntry.is_regular_file())
 					continue;
 
+				string fileName = fileEntry.path().filename().string();
+				int size = static_cast<int>(fs::file_size(fileEntry.path()) / 1024);
+				int viewNumber = 0;
+				string description = "No description";
+				string directory = fileEntry.path().string();
+
 				MediaFile file;
-				file.setName(fileEntry.path().filename().string());
-				file.setSize(static_cast<int>(fs::file_size(fileEntry.path()) / 1024));
+				file.setName(fileName);
+				file.setSize(size);
+				file.setViewNumber(viewNumber);
 				file.setType(fileType); // Video / Audio
 				file.setGenre(genre);       // Horror / Action / Rock
-				file.setDescription("No description");
+				file.setDescription(description);
+				file.setDirectory(directory);
 
 				mediaList.push_back(file);
 			}
@@ -54,9 +62,11 @@ void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 		outFile
 			<< file.getName() << "|"
 			<< file.getSize() << "|"
+			<< file.getViewNumber() << "|"
 			<< file.getType() << "|"
 			<< file.getGenre() << "|"
-			<< file.getDescription() << "\n";
+			<< file.getDescription() << "|"
+			<< file.getDirectory() << "\n";
 	}
 
 	outFile.close();
