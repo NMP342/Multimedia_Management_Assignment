@@ -1,7 +1,7 @@
 #include "pch.h"
 
 
-void FileHelper::ReadMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
+void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 
 	for (const auto& typeEntry : fs::directory_iterator(ROOTPATH))
 	{
@@ -24,11 +24,11 @@ void FileHelper::ReadMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 					continue;
 
 				MediaFile file;
-				file.SetName(fileEntry.path().filename().string());
-				file.SetSize(static_cast<int>(fs::file_size(fileEntry.path()) / 1024));
-				file.SetType(fileType); // Video / Audio
-				file.SetGenre(genre);       // Horror / Action / Rock
-				file.SetDescription("No description");
+				file.setName(fileEntry.path().filename().string());
+				file.setSize(static_cast<int>(fs::file_size(fileEntry.path()) / 1024));
+				file.setType(fileType); // Video / Audio
+				file.setGenre(genre);       // Horror / Action / Rock
+				file.setDescription("No description");
 
 				mediaList.push_back(file);
 			}
@@ -36,7 +36,7 @@ void FileHelper::ReadMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 	}
 }
 
-void FileHelper::SaveMediaListToFile(const vector<MediaFile>& mediaList)
+void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 {
 	string filePath = ROOTPATH;
 	filePath += "\\media_files_list.txt";
@@ -52,11 +52,11 @@ void FileHelper::SaveMediaListToFile(const vector<MediaFile>& mediaList)
 	for (auto file : mediaList)
 	{
 		outFile
-			<< file.GetName() << "|"
-			<< file.GetSize() << "|"
-			<< file.GetType() << "|"
-			<< file.GetGenre() << "|"
-			<< file.GetDescription() << "\n";
+			<< file.getName() << "|"
+			<< file.getSize() << "|"
+			<< file.getType() << "|"
+			<< file.getGenre() << "|"
+			<< file.getDescription() << "\n";
 	}
 
 	outFile.close();

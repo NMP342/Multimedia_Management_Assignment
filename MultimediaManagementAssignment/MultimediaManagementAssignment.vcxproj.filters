@@ -13,27 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{26badfba-db1a-4f52-8fa8-7553cda72b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{d6c46151-09f0-4d7f-8cc3-89acfaf14c1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helper">
+      <UniqueIdentifier>{49fcbd7c-c4bf-4d5c-88b0-6c52f04752a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{839ea17d-cf2a-449d-9a82-a3879c93d63c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{a23cbd7c-2ac9-4ae6-be63-889edc078e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helper">
+      <UniqueIdentifier>{e52984a5-2c4d-417b-9814-5c5b9e2ab4cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MultimediaManagementAssignment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MediaFile.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaFilesManager.cpp">
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="FileHelper.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MediaFile.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaFilesManager.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelper.h">
+      <Filter>Header Files\Helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,49 +1,49 @@
 #include "pch.h"
 
-string& MediaFile::GetName() {
-	return m_name;
+string& MediaFile::getName() {
+	return _name;
 }
 
-string& MediaFile::GetType() {
-	return m_type;
+string& MediaFile::getType() {
+	return _type;
 }
 
-string& MediaFile::GetGenre() {
-	return m_genre;
+string& MediaFile::getGenre() {
+	return _genre;
 }
 
-int& MediaFile::GetSize() {
-	return m_size;
+int& MediaFile::getSize() {
+	return _size;
 }
 
-string& MediaFile::GetDescription() {
-	return m_description;
+string& MediaFile::getDescription() {
+	return _description;
 }
 
-string& MediaFile::GetDirectory() {
-	return m_directory;
+string& MediaFile::getDirectory() {
+	return _directory;
 }
 
-void MediaFile::SetName(string name) {
-	m_name = name;
+void MediaFile::setName(string name) {
+	_name = name;
 }
 
-void MediaFile::SetType(string type) {
-	m_type = type;
+void MediaFile::setType(string type) {
+	_type = type;
 }
 
-void MediaFile::SetGenre(string genre) {
-	m_genre = genre;
+void MediaFile::setGenre(string genre) {
+	_genre = genre;
 }
 
-void MediaFile::SetSize(int size) {
-	m_size = size;
+void MediaFile::setSize(int size) {
+	_size = size;
 }
 
-void MediaFile::SetDescription(string description) {
-	m_description = description;
+void MediaFile::setDescription(string description) {
+	_description = description;
 }
 
-void MediaFile::SetDirectory(string directory) {
-	m_directory = directory;
+void MediaFile::setDirectory(string directory) {
+	_directory = directory;
 }
