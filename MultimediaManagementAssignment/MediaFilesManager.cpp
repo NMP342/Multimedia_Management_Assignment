@@ -3,7 +3,7 @@
 vector<MediaFile> MediaFilesManager::_mediaFiles;
 
 void MediaFilesManager::initialize() {
-	_pFileHelper->readMediaFilesFromRootPath(_mediaFiles);
+	_pFileHelper->readMediaListFromFile(_mediaFiles);
     _pFileHelper->saveMediaListToFile(_mediaFiles);
 }
 

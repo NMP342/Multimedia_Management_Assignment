@@ -40,11 +40,12 @@ void DisplayController::executeFunction(const int& funcNumber) {
 void DisplayController::displayMediaList(vector<MediaFile>& mediaList) {
 	for (auto file : mediaList)
 	{
-		std::cout << "------------------------\n";
-		std::cout << "Name       : " << file.getName() << "\n";
-		std::cout << "Size (KB)  : " << file.getSize() << "\n";
-		std::cout << "Type       : " << file.getType() << "\n";
-		std::cout << "Genre      : " << file.getGenre() << "\n";
-		std::cout << "Description: " << file.getDescription() << "\n";
+		cout << "------------------------\n";
+		cout << "Name       : " << file.getName() << "\n";
+		cout << "Size (KB)  : " << file.getSize() << "\n";
+		cout << "View       : " << file.getViewNumber() << "\n";
+		cout << "Type       : " << file.getType() << "\n";
+		cout << "Genre      : " << file.getGenre() << "\n";
+		cout << "Description: " << file.getDescription() << "\n";
 	}
 }

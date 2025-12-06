@@ -44,15 +44,61 @@ void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 	}
 }
 
+void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
+	std::ifstream inFile(FILEPATH);
+
+	if (!inFile.is_open())
+	{
+		std::cerr << FILEPATH << '\n';
+		std::cerr << "Cannot open file for reading!\n";
+		return;
+	}
+
+	std::string line;
+
+	if (!std::getline(inFile, line)) { return; }
+
+	while (std::getline(inFile, line))
+	{
+		if (line.empty()) {
+			continue;
+		}
+
+		auto fields = splitStringByDelimiter(line, '|');
+
+		if (fields.size() != 7)
+			continue;
+
+		string name = fields[0];
+		int size = stoi(fields[1]);
+		int viewNumber = stoi(fields[2]);
+		string type = fields[3];
+		string genre = fields[4];
+		string description = fields[5];
+		string directory = fields[6];
+
+		MediaFile file;
+		file.setName(name);
+		file.setSize(size);
+		file.setViewNumber(viewNumber);
+		file.setType(type); // Video / Audio
+		file.setGenre(genre);       // Horror / Action / Rock
+		file.setDescription(description);
+		file.setDirectory(directory);
+
+		mediaList.push_back(file);
+	}
+
+	inFile.close();
+}
+
 void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 {
-	string filePath = ROOTPATH;
-	filePath += "\\media_files_list.txt";
-	std::ofstream outFile(filePath);
+	std::ofstream outFile(FILEPATH);
 
 	if (!outFile.is_open())
 	{
-		std::cerr << filePath << '\n';
+		std::cerr << FILEPATH << '\n';
 		std::cerr << "Cannot open file for writing!\n";
 		return;
 	}
@@ -70,4 +116,16 @@ void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 	}
 
 	outFile.close();
+}
+
+vector<string> FileHelper::splitStringByDelimiter(string& line, char delimiter) {
+	vector<string> tokens;
+	stringstream ss(line);
+	string item;
+
+	while (getline(ss, item, delimiter)) {
+		tokens.push_back(item);
+	}
+
+	return tokens;
 }
