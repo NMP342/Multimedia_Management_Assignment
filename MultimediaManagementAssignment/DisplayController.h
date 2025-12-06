@@ -7,9 +7,8 @@ public:
 	void executeFunction(const int& funcNumber);
 	void displayMediaList(vector<MediaFile>& mediaList);
 
-	int& getCurrentFunction();
-	void setCurrentFunction(int& currentFunction);
-
 private:
 	unique_ptr<MediaFilesManager> _pMediaFileManager;
+
+	string inputSearchedString();
 };

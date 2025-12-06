@@ -56,8 +56,6 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 
 	std::string line;
 
-	if (!std::getline(inFile, line)) { return; }
-
 	while (std::getline(inFile, line))
 	{
 		if (line.empty()) {

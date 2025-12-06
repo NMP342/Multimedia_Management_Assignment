@@ -11,12 +11,14 @@ private:
 	static vector<MediaFile> _mediaFiles;
 	unique_ptr<FileHelper> _pFileHelper;
 
+	string toLower(string& word);
+
 public:
 	void initialize();
 	void downloadMediaFile();
 	void removeMediaFile();
 	void playMediaFile();
 	void filterMediaFiles();
-	void searchMediaFiles();
+	vector<MediaFile> searchMediaFiles(string& searchedString);
 	vector<MediaFile>& getAllMediaFiles();
 };
