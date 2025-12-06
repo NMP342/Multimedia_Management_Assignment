@@ -3,25 +3,10 @@
 
 #include "pch.h"
 
-static void PrintMediaList(const std::vector<MediaFile>& mediaList)
-{
-    for (MediaFile file : mediaList)
-    {
-        std::cout << "------------------------\n";
-        std::cout << "Name       : " << file.GetName() << "\n";
-        std::cout << "Size (KB)  : " << file.GetSize() << "\n";
-        std::cout << "Type       : " << file.GetType() << "\n";
-        std::cout << "Genre      : " << file.GetGenre() << "\n";
-        std::cout << "Description: " << file.GetDescription() << "\n";
-    }
-}
-
 int main()
 {
-	vector<MediaFile> mediaFilesList;
-	FileHelper::ReadMediaFilesFromRootPath(mediaFilesList);
-	FileHelper::SaveMediaListToFile(mediaFilesList);
-	PrintMediaList(mediaFilesList);
+	MediaFilesManager mediaFilesManager = MediaFilesManager();
+	mediaFilesManager.initialize();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

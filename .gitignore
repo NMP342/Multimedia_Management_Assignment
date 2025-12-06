@@ -1,12 +1,11 @@
 *.vs
-*.filters
 *.user
 *.htm
 Debug
 Release
 x64
 x86
-MultimediaManagementAssignment\x64
+/MultimediaManagementAssignment/x64/Debug
 bin
 packages
 *Backup*

@@ -1,6 +1,6 @@
 #pragma once
 
-#define ROOTPATH "C:\\Users\\Chuong\\Documents\\C_Plus_Projects\\Multimedia_Management_Assignment\\Media"
+#define ROOTPATH "D:\\Training\\C++ From Basics to Advanced\\Multimedia_Management_Assignment\\Media"
 
 #include <iostream>
 #include <fstream>
@@ -9,6 +9,7 @@
 
 #include "MediaFile.h"
 #include "FileHelper.h"
+#include "MediaFilesManager.h"
 
 using namespace std;
 namespace fs = std::filesystem;

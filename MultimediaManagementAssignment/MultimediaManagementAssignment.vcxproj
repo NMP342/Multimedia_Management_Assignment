@@ -130,11 +130,13 @@
   <ItemGroup>
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="MediaFile.cpp" />
+    <ClCompile Include="MediaFilesManager.cpp" />
     <ClCompile Include="MultimediaManagementAssignment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="MediaFile.h" />
+    <ClInclude Include="MediaFilesManager.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
