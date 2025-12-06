@@ -7,9 +7,12 @@
 #include <string>
 #include <filesystem>
 
+#include "FunctionNumber.h"
+
 #include "MediaFile.h"
 #include "FileHelper.h"
 #include "MediaFilesManager.h"
+#include "DisplayController.h"
 
 using namespace std;
 namespace fs = std::filesystem;

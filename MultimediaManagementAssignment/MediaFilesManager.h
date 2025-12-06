@@ -18,5 +18,5 @@ public:
 	void playMediaFile();
 	void filterMediaFiles();
 	void searchMediaFiles();
-	void displayMediaFiles(const vector<MediaFile>& mediaFiles);
+	vector<MediaFile>& getAllMediaFiles();
 };

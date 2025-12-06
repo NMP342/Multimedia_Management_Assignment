@@ -128,12 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DisplayController.cpp" />
     <ClCompile Include="FileHelper.cpp" />
+    <ClCompile Include="FunctionNumber.h" />
     <ClCompile Include="MediaFile.cpp" />
     <ClCompile Include="MediaFilesManager.cpp" />
     <ClCompile Include="MultimediaManagementAssignment.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DisplayController.h" />
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="MediaFile.h" />
     <ClInclude Include="MediaFilesManager.h" />

@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Helper">
       <UniqueIdentifier>{e52984a5-2c4d-417b-9814-5c5b9e2ab4cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Model\Enum">
+      <UniqueIdentifier>{11924b57-9936-4a60-b393-1977b5e8250e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MultimediaManagementAssignment.cpp">
@@ -45,6 +48,12 @@
     <ClCompile Include="FileHelper.cpp">
       <Filter>Source Files\Helper</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionNumber.h">
+      <Filter>Header Files\Model\Enum</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -58,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="FileHelper.h">
       <Filter>Header Files\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayController.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

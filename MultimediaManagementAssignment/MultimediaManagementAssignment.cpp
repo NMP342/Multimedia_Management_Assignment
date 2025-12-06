@@ -5,8 +5,8 @@
 
 int main()
 {
-	MediaFilesManager mediaFilesManager = MediaFilesManager();
-	mediaFilesManager.initialize();
+	DisplayController displayController = DisplayController();
+	displayController.displayFunctions();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
