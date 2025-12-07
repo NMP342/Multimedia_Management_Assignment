@@ -10,3 +10,28 @@ string StringHelper::toLower(string& toLowerString) {
 
 	return loweredString;
 }
+
+string StringHelper::toUpperCamelCase(string& toUpperCamelCaseString) {
+    string upperCamelCaseString;
+    bool makeUpper = true;
+
+    for (char c : toUpperCamelCaseString)
+    {
+        if (isspace(static_cast<unsigned char>(c)))
+        {
+            makeUpper = true;
+        }
+        else
+        {
+            if (makeUpper)
+            {
+                upperCamelCaseString += toupper(c);
+                makeUpper = false;
+            }
+            else
+                upperCamelCaseString += tolower(c);
+        }
+    }
+
+    return upperCamelCaseString;
+}

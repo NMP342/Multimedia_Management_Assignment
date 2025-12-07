@@ -2,6 +2,7 @@
 
 
 void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
+	mediaList.clear();
 
 	for (const auto& typeEntry : fs::directory_iterator(ROOTPATH))
 	{
@@ -116,6 +117,28 @@ void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 	outFile.close();
 }
 
+bool FileHelper::appendMediaFileToFile(MediaFile& mediaFile) {
+	ofstream outFile(FILEPATH, std::ios::out | std::ios::app);
+
+	if (!outFile)
+	{
+		std::cerr << "Cannot open file for appending: " << FILEPATH << '\n';
+		return false;
+	}
+
+	outFile
+		<< mediaFile.getName() << "|"
+		<< mediaFile.getSize() << "|"
+		<< mediaFile.getViewNumber() << "|"
+		<< mediaFile.getType() << "|"
+		<< mediaFile.getGenre() << "|"
+		<< mediaFile.getDescription() << "|"
+		<< mediaFile.getDirectory() << "\n";
+
+	outFile.close();
+	return true;
+}
+
 vector<string> FileHelper::splitStringByDelimiter(string& line, char delimiter) {
 	vector<string> tokens;
 	stringstream ss(line);
@@ -127,3 +150,4 @@ vector<string> FileHelper::splitStringByDelimiter(string& line, char delimiter) 
 
 	return tokens;
 }
+

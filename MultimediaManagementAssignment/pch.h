@@ -11,10 +11,12 @@
 
 #include "FunctionNumber.h"
 #include "FilterCriteria.h"
+#include "MediaType.h"
 
 #include "MediaFile.h"
 #include "MediaFilesManager.h"
 #include "DisplayController.h"
+#include "CopyService.h"
 
 #include "FileHelper.h"
 #include "StringHelper.h"

@@ -2,11 +2,29 @@
 
 vector<MediaFile> MediaFilesManager::_mediaFiles;
 
+MediaFilesManager::MediaFilesManager() {
+	_pCopyService = make_unique<CopyService>();
+}
+
 void MediaFilesManager::initialize() {
 	_pFileHelper->readMediaListFromFile(_mediaFiles);
 }
 
-void MediaFilesManager::downloadMediaFile() {}
+pair<bool, string> MediaFilesManager::downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress) {
+	auto downloadResult = _pCopyService->copyFileWithProgress(sourceDirectory, destinationDirectory, mediaFile, showProgress);
+
+	if (downloadResult.first) {
+		_mediaFiles.push_back(mediaFile);
+		bool appendFileResult = _pFileHelper->appendMediaFileToFile(mediaFile);
+
+		if (!appendFileResult) {
+			//Need lock
+			_pFileHelper->saveMediaListToFile(_mediaFiles);
+		}
+	}
+
+	return downloadResult;
+}
 
 const vector<MediaFile> MediaFilesManager::filterMediaFiles(const FilterCriteria& filterCriteria, string& filterValue) {
 	filterValue = StringHelper::toLower(filterValue);

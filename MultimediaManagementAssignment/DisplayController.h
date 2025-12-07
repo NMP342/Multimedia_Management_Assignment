@@ -10,6 +10,13 @@ public:
 private:
 	unique_ptr<MediaFilesManager> _pMediaFileManager;
 
+	string inputMediaFileSourceDirectory();
+	string chooseDestinationMediaFileType(MediaFile& mediaFile);
+	string chooseDestinationMediaFileGenre(MediaFile& mediaFile);
+	string createMediaFileDestinationDirectory(const string& mediaType, const string& mediaGenre);
+	void inputMediaFileDescription(MediaFile& mediaFile);
+	void showProgress(uint64_t copied, uint64_t total);
+	void handleDownloadResult(pair<bool, string>& downloadResult);
 	string inputSearchedString();
 	FilterCriteria chooseFilterCriteria();
 	string chooseFilterValue(FilterCriteria filterCriteria);

@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CopyService.cpp" />
     <ClCompile Include="DisplayController.cpp" />
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="FunctionNumber.h" />
@@ -137,12 +138,14 @@
     <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CopyService.h" />
     <ClInclude Include="DisplayController.h" />
     <ClInclude Include="EnumHelper.h" />
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="FilterCriteria.h" />
     <ClInclude Include="MediaFile.h" />
     <ClInclude Include="MediaFilesManager.h" />
+    <ClInclude Include="MediaType.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>

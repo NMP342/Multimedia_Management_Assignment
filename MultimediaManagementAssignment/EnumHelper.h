@@ -2,6 +2,7 @@
 
 #include <string>
 #include "FilterCriteria.h"
+#include "MediaType.h"
 
 using namespace std;
 
@@ -9,17 +10,17 @@ namespace EnumString {
 
 	static string filterCriteriaEnumToString(FilterCriteria filterCriteria) {
 		switch (filterCriteria) {
-		case FilterCriteria::TYPE:  return "type";
-		case FilterCriteria::GENRE: return "genre";
+		case FilterCriteria::TYPE:  return "Type";
+		case FilterCriteria::GENRE: return "Genre";
 		}
-		return "unknown";
+		return "Unknown";
 	}
 
-	static string filterTypeCriteriaEnumToString(FilterTypeCriteria filterTypeCriteria) {
-		switch (filterTypeCriteria) {
-		case FilterTypeCriteria::VIDEO:  return "video";
-		case FilterTypeCriteria::AUDIO: return "audio";
+	static string mediaTypeEnumToString(MediaType mediaType) {
+		switch (mediaType) {
+		case MediaType::VIDEO:  return "Video";
+		case MediaType::AUDIO: return "Audio";
 		}
-		return "unknown";
+		return "Unknown";
 	}
 }

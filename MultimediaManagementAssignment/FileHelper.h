@@ -7,6 +7,7 @@ public:
 	static void readMediaFilesFromRootPath(vector<MediaFile>& mediaList);
 	static void readMediaListFromFile(vector<MediaFile>& mediaList);
 	static void saveMediaListToFile(const vector<MediaFile>& mediaList);
+	static bool appendMediaFileToFile(MediaFile& mediaFile);
 
 private:
 	static vector<string> splitStringByDelimiter(string& line, char delimiter);
