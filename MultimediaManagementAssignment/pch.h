@@ -10,11 +10,16 @@
 #include <filesystem>
 
 #include "FunctionNumber.h"
+#include "FilterCriteria.h"
 
 #include "MediaFile.h"
-#include "FileHelper.h"
 #include "MediaFilesManager.h"
 #include "DisplayController.h"
 
+#include "FileHelper.h"
+#include "StringHelper.h"
+#include "EnumHelper.h"
+
 using namespace std;
+using namespace EnumString;
 namespace fs = std::filesystem;

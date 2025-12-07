@@ -8,16 +8,48 @@ void MediaFilesManager::initialize() {
 
 void MediaFilesManager::downloadMediaFile() {}
 
-void MediaFilesManager::filterMediaFiles() {}
+const vector<MediaFile> MediaFilesManager::filterMediaFiles(const FilterCriteria& filterCriteria, string& filterValue) {
+	filterValue = StringHelper::toLower(filterValue);
 
-vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedString) {
+	switch (filterCriteria)
+	{
+	case TYPE: return filterMediaFilesByType(filterValue);
+	case GENRE: return filterMediaFilesByGenre(filterValue);
+	}
+}
+
+const vector<MediaFile> MediaFilesManager::filterMediaFilesByType(const string& typeValue) {
+	vector<MediaFile> filteredMediaList;
+
+	for (auto& mediaFile : _mediaFiles) {
+		if (StringHelper::toLower(mediaFile.getType()) == typeValue) {
+			filteredMediaList.push_back(mediaFile);
+		}
+	}
+
+	return filteredMediaList;
+}
+
+const vector<MediaFile> MediaFilesManager::filterMediaFilesByGenre(const string& genreValue) {
+	vector<MediaFile> filteredMediaList;
+
+	for (auto& mediaFile : _mediaFiles) {
+		if (StringHelper::toLower(mediaFile.getGenre()) == genreValue) {
+			filteredMediaList.push_back(mediaFile);
+		}
+	}
+
+	return filteredMediaList;
+}
+
+const vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedString) {
 	vector<MediaFile> searchedMediaList;
 
-	searchedString = toLower(searchedString);
+	searchedString = StringHelper::toLower(searchedString);
 
 	for (auto& media : _mediaFiles)
 	{
-		if (toLower(media.getName()).find(searchedString) != string::npos)
+		if (StringHelper::toLower(media.getName()).find(searchedString) != string::npos)
 		{
 			searchedMediaList.push_back(media);
 		}
@@ -35,14 +67,27 @@ vector<MediaFile>& MediaFilesManager::getAllMediaFiles()
 	return _mediaFiles;
 }
 
-string MediaFilesManager::toLower(string& word) {
-	string loweredWord = word;
+const vector<string>& MediaFilesManager::getAllMediaTypes() {
+	return _mediaTypes;
+}
 
-	transform(loweredWord.begin(), loweredWord.end(), loweredWord.begin(),
-		[](unsigned char c) {
-			return std::tolower(c);
-		});
+const vector<string>& MediaFilesManager::getAllMediaGenres() {
+	if (_mediaGenres.size() == 0)
+	{
+		set<string> mediaGenresSet;
+		for (auto& media : _mediaFiles)
+		{
+			if (!media.getGenre().empty())
+			{
+				mediaGenresSet.insert(media.getGenre());
+			}
+		}
 
-	return loweredWord;
+		for (auto& genre : mediaGenresSet) {
+			_mediaGenres.push_back(genre);
+		}
+	}
+
+	return _mediaGenres;
 }
 

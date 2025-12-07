@@ -54,6 +54,9 @@
     <ClCompile Include="FunctionNumber.h">
       <Filter>Header Files\Model\Enum</Filter>
     </ClCompile>
+    <ClCompile Include="StringHelper.cpp">
+      <Filter>Source Files\Helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -70,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="DisplayController.h">
       <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterCriteria.h">
+      <Filter>Header Files\Model\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="StringHelper.h">
+      <Filter>Header Files\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumHelper.h">
+      <Filter>Header Files\Helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -35,6 +35,15 @@ void DisplayController::executeFunction(const int& funcNumber) {
 		displayMediaList(searchedMediaList);
 		break;
 	}
+	case FILTER: {
+		FilterCriteria filterCriteria = chooseFilterCriteria();
+		string filterValue = chooseFilterValue(filterCriteria);
+
+		vector<MediaFile> filteredMediaList = _pMediaFileManager->filterMediaFiles(filterCriteria, filterValue);
+		displayMediaList(filteredMediaList);
+
+		break;
+	}
 	case EXIT:
 		cout << "\nGoodbye!";
 		return;
@@ -44,10 +53,9 @@ void DisplayController::executeFunction(const int& funcNumber) {
 }
 
 void DisplayController::displayMediaList(vector<MediaFile>& mediaList) {
-	cout << "The result is: \n";
+	cout << "There is totally " << mediaList.size() << " result(s):\n";
 
 	if (mediaList.size() == 0) {
-		cout << "Nothing to show. \n";
 		return;
 	}
 
@@ -72,4 +80,63 @@ string DisplayController::inputSearchedString() {
 	cin >> searchedString;
 
 	return searchedString;
+}
+
+FilterCriteria DisplayController::chooseFilterCriteria() {
+	cout << "1. Type" << "\n";
+	cout << "2. Genre" << "\n";
+	cout << "Please choose the vriteria you want to filter by: ";
+
+	int filterCriteria;
+	cin >> filterCriteria;
+
+	switch (filterCriteria)
+	{
+	case FilterCriteria::TYPE: return FilterCriteria::TYPE;
+	case FilterCriteria::GENRE: return FilterCriteria::GENRE;
+	}
+}
+
+string DisplayController::chooseFilterValue(FilterCriteria filterCriteria) {
+	switch (filterCriteria)
+	{
+	case FilterCriteria::TYPE: return chooseFilterTypeCriteria();
+	case FilterCriteria::GENRE: return chooseFilterGenreCriteria();
+	}
+}
+
+string DisplayController::chooseFilterTypeCriteria() {
+	vector<string> mediaTypes = _pMediaFileManager->getAllMediaTypes();
+
+	int typeNumber = 1;
+	for (const string& mediaType : mediaTypes) {
+		cout << typeNumber++ << ". " << mediaType << "\n";
+	}
+
+	cout << "Please choose the media type you want to filter by: ";
+
+	int filterTypeCriteria;
+	cin >> filterTypeCriteria;
+
+	switch (filterTypeCriteria)
+	{
+	case FilterTypeCriteria::VIDEO: return filterTypeCriteriaEnumToString(FilterTypeCriteria::VIDEO);
+	case FilterTypeCriteria::AUDIO: return filterTypeCriteriaEnumToString(FilterTypeCriteria::AUDIO);
+	}
+}
+
+string DisplayController::chooseFilterGenreCriteria() {
+	vector<string> mediaGenres = _pMediaFileManager->getAllMediaGenres();
+
+	int genreNumber = 1;
+	for (const string& genre : mediaGenres) {
+		cout << genreNumber++ << ". " << genre << "\n";
+	}
+
+	cout << "Please choose the genre you want to filter by.\n";
+
+	int filterGenreCriteria;
+	cin >> filterGenreCriteria;
+
+	return mediaGenres[filterGenreCriteria - 1];
 }

@@ -11,4 +11,8 @@ private:
 	unique_ptr<MediaFilesManager> _pMediaFileManager;
 
 	string inputSearchedString();
+	FilterCriteria chooseFilterCriteria();
+	string chooseFilterValue(FilterCriteria filterCriteria);
+	string chooseFilterTypeCriteria();
+	string chooseFilterGenreCriteria();
 };

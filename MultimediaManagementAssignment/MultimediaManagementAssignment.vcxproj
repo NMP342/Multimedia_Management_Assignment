@@ -134,13 +134,17 @@
     <ClCompile Include="MediaFile.cpp" />
     <ClCompile Include="MediaFilesManager.cpp" />
     <ClCompile Include="MultimediaManagementAssignment.cpp" />
+    <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DisplayController.h" />
+    <ClInclude Include="EnumHelper.h" />
     <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="FilterCriteria.h" />
     <ClInclude Include="MediaFile.h" />
     <ClInclude Include="MediaFilesManager.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
