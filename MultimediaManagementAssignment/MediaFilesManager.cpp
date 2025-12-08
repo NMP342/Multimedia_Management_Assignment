@@ -80,9 +80,17 @@ const vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedStri
 
 void MediaFilesManager::removeMediaFile() {}
 
-pair<bool, string> MediaFilesManager::playMediaFile(const string& mediaFileDirectory) {
-	string message = "PLAY|" + mediaFileDirectory;
+pair<bool, string> MediaFilesManager::playMediaFile(MediaFile& mediaFile) {
+	string message = "PLAY|" + mediaFile.getDirectory();
 	auto playResult = _pNamedPipeClient->sendMessageToNamedPipeServer(message);
+
+	if (playResult.first) {
+		int viewNumber = mediaFile.getViewNumber() + 1;
+		mediaFile.setViewNumber(viewNumber);
+
+		_pFileHelper->saveMediaListToFile(_mediaFiles);
+	}
+
 	return playResult;
 }
 

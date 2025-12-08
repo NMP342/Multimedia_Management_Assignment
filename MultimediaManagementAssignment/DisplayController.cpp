@@ -68,8 +68,8 @@ void DisplayController::executeFunction(const int& funcNumber) {
 		vector<MediaFile>& mediaList = _pMediaFileManager->getAllMediaFiles();
 		displayMediaList(mediaList);
 		
-		MediaFile mediaFile = chooseMediaFileToPlay(mediaList);
-		pair<bool, string> playResult = _pMediaFileManager->playMediaFile(mediaFile.getDirectory());
+		MediaFile& mediaFile = chooseMediaFileToPlay(mediaList);
+		pair<bool, string> playResult = _pMediaFileManager->playMediaFile(mediaFile);
 
 		handlePlayResult(playResult);
 

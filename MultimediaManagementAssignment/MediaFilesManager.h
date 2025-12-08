@@ -29,7 +29,7 @@ public:
 	void initialize();
 	pair<bool, string> downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress);
 	void removeMediaFile();
-	pair<bool, string> playMediaFile(const string& mediaFileDirectory);
+	pair<bool, string> playMediaFile(MediaFile& mediaFile);
 	const vector<MediaFile> filterMediaFiles(const FilterCriteria& filterCriteria, string& filterValue);
 	const vector<MediaFile> searchMediaFiles(string& searchedString);
 	vector<MediaFile>& getAllMediaFiles();
