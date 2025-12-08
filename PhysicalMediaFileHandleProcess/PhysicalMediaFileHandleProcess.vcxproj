@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{236d15c5-0ca6-4f87-bf40-0333e7623214}</ProjectGuid>
-    <RootNamespace>MultimediaManagementAssignment</RootNamespace>
+    <ProjectGuid>{40549844-7ac9-4406-be6f-9069bf98c074}</ProjectGuid>
+    <RootNamespace>PhysicalMediaFileHandleProcess</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -93,8 +93,6 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -104,7 +102,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,33 +119,17 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CopyService.cpp" />
-    <ClCompile Include="DisplayController.cpp" />
-    <ClCompile Include="FileHelper.cpp" />
-    <ClCompile Include="FunctionNumber.h" />
-    <ClCompile Include="MediaFile.cpp" />
-    <ClCompile Include="MediaFilesManager.cpp" />
-    <ClCompile Include="MultimediaManagementAssignment.cpp" />
-    <ClCompile Include="NamedPipeClient.cpp" />
-    <ClCompile Include="NamedPipeClient.h" />
+    <ClCompile Include="NamedPipeServer.cpp" />
     <ClCompile Include="OpenFileService.cpp" />
+    <ClCompile Include="PhysicalMediaFileHandleProcess.cpp" />
     <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CopyService.h" />
-    <ClInclude Include="DisplayController.h" />
-    <ClInclude Include="EnumHelper.h" />
-    <ClInclude Include="FileHelper.h" />
-    <ClInclude Include="FilterCriteria.h" />
-    <ClInclude Include="MediaFile.h" />
-    <ClInclude Include="MediaFilesManager.h" />
-    <ClInclude Include="MediaType.h" />
+    <ClInclude Include="NamedPipeServer.h" />
     <ClInclude Include="OpenFileService.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StringHelper.h" />

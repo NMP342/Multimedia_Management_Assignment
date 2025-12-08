@@ -1,6 +1,6 @@
-chinese-flute-relaxing-music-short-120917.mp3|1731|0|Audio|Folk|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Audio\Folk\chinese-flute-relaxing-music-short-120917.mp3
-short-1-slow-196420.mp3|939|0|Audio|Folk|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Audio\Folk\short-1-slow-196420.mp3
-toy-story-short-happy-audio-logo-short-cartoony-intro-outro-music-125627.mp3|183|0|Audio|Folk|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Audio\Folk\toy-story-short-happy-audio-logo-short-cartoony-intro-outro-music-125627.mp3
-simplicity-short-intro-outro-14281.mp3|888|0|Audio|Pop|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Audio\Pop\simplicity-short-intro-outro-14281.mp3
-306155_tiny.mp4|1030|0|Video|Fantasy|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Video\Fantasy\306155_tiny.mp4
-287510_tiny.mp4|11388|0|Video|Horror|No description|C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\Media\Video\Horror\287510_tiny.mp4
+chinese-flute-relaxing-music-short-120917.mp3|1731|0|Audio|Folk|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Audio\Folk\chinese-flute-relaxing-music-short-120917.mp3
+short-1-slow-196420.mp3|939|0|Audio|Folk|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Audio\Folk\short-1-slow-196420.mp3
+toy-story-short-happy-audio-logo-short-cartoony-intro-outro-music-125627.mp3|183|0|Audio|Folk|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Audio\Folk\toy-story-short-happy-audio-logo-short-cartoony-intro-outro-music-125627.mp3
+simplicity-short-intro-outro-14281.mp3|888|0|Audio|Pop|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Audio\Pop\simplicity-short-intro-outro-14281.mp3
+306155_tiny.mp4|1030|0|Video|Fantasy|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Video\Fantasy\306155_tiny.mp4
+287510_tiny.mp4|11388|0|Video|Horror|No description|D:\C_Plus_Projects\MultimediaManagementAssignment\Media\Video\Horror\287510_tiny.mp4

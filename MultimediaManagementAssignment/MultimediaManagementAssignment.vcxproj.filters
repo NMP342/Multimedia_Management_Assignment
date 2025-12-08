@@ -40,6 +40,12 @@
     <Filter Include="Header Files\Service">
       <UniqueIdentifier>{1ecaf4e5-d8ac-4694-abf2-39dab46a3e9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Communication">
+      <UniqueIdentifier>{fe5a7bca-a850-4c68-9a46-0e72cd6b660a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Communication">
+      <UniqueIdentifier>{d900802c-6791-4675-86df-50e0b0c5224c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MultimediaManagementAssignment.cpp">
@@ -63,7 +69,16 @@
     <ClCompile Include="StringHelper.cpp">
       <Filter>Source Files\Helper</Filter>
     </ClCompile>
-    <ClCompile Include="CopyMediaFileService.cpp">
+    <ClCompile Include="NamedPipeClient.h">
+      <Filter>Header Files\Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedPipeClient.cpp">
+      <Filter>Source Files\Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyService.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenFileService.cpp">
       <Filter>Source Files\Service</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,7 +110,10 @@
     <ClInclude Include="MediaType.h">
       <Filter>Header Files\Model\Enum</Filter>
     </ClInclude>
-    <ClInclude Include="CopyMediaFileService.h">
+    <ClInclude Include="CopyService.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenFileService.h">
       <Filter>Header Files\Service</Filter>
     </ClInclude>
   </ItemGroup>

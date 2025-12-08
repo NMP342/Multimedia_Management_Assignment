@@ -6,6 +6,7 @@
 #include "FileHelper.h"
 #include "CopyService.h"
 #include "OpenFileService.h"
+#include "NamedPipeClient.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ private:
 	unique_ptr<FileHelper> _pFileHelper;
 	unique_ptr<CopyService> _pCopyService;
 	unique_ptr<OpenFileService> _pOpenFileService;
+	unique_ptr<NamedPipeClient> _pNamedPipeClient;
 
 	const vector<MediaFile> filterMediaFilesByType(const string& typeValue);
 	const vector<MediaFile> filterMediaFilesByGenre(const string& genreValue);

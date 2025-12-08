@@ -5,6 +5,7 @@ vector<MediaFile> MediaFilesManager::_mediaFiles;
 MediaFilesManager::MediaFilesManager() {
 	_pCopyService = make_unique<CopyService>();
 	_pOpenFileService = make_unique<OpenFileService>();
+	_pNamedPipeClient = make_unique<NamedPipeClient>();
 }
 
 void MediaFilesManager::initialize() {
@@ -80,7 +81,8 @@ const vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedStri
 void MediaFilesManager::removeMediaFile() {}
 
 pair<bool, string> MediaFilesManager::playMediaFile(const string& mediaFileDirectory) {
-	auto playResult = _pOpenFileService->openFile(mediaFileDirectory);
+	string message = "PLAY|" + mediaFileDirectory;
+	auto playResult = _pNamedPipeClient->sendMessageToNamedPipeServer(message);
 	return playResult;
 }
 
