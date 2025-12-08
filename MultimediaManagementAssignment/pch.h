@@ -8,6 +8,8 @@
 #include <sstream>
 #include <string>
 #include <filesystem>
+#include <windows.h>
+#include <shellapi.h>
 
 #include "FunctionNumber.h"
 #include "FilterCriteria.h"
@@ -17,6 +19,7 @@
 #include "MediaFilesManager.h"
 #include "DisplayController.h"
 #include "CopyService.h"
+#include "OpenFileService.h"
 
 #include "FileHelper.h"
 #include "StringHelper.h"

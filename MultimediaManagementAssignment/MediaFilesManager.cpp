@@ -4,6 +4,7 @@ vector<MediaFile> MediaFilesManager::_mediaFiles;
 
 MediaFilesManager::MediaFilesManager() {
 	_pCopyService = make_unique<CopyService>();
+	_pOpenFileService = make_unique<OpenFileService>();
 }
 
 void MediaFilesManager::initialize() {
@@ -78,7 +79,10 @@ const vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedStri
 
 void MediaFilesManager::removeMediaFile() {}
 
-void MediaFilesManager::playMediaFile() {}
+pair<bool, string> MediaFilesManager::playMediaFile(const string& mediaFileDirectory) {
+	auto playResult = _pOpenFileService->openFile(mediaFileDirectory);
+	return playResult;
+}
 
 vector<MediaFile>& MediaFilesManager::getAllMediaFiles()
 {

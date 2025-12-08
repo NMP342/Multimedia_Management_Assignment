@@ -22,4 +22,6 @@ private:
 	string chooseFilterValue(FilterCriteria filterCriteria);
 	string chooseFilterTypeCriteria();
 	string chooseFilterGenreCriteria();
+	MediaFile& chooseMediaFileToPlay(vector<MediaFile>& mediaList);
+	void handlePlayResult(const pair<bool, string>& playResult);
 };

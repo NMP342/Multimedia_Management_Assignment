@@ -64,6 +64,17 @@ void DisplayController::executeFunction(const int& funcNumber) {
 
 		break;
 	}
+	case PLAY: {
+		vector<MediaFile>& mediaList = _pMediaFileManager->getAllMediaFiles();
+		displayMediaList(mediaList);
+		
+		MediaFile mediaFile = chooseMediaFileToPlay(mediaList);
+		pair<bool, string> playResult = _pMediaFileManager->playMediaFile(mediaFile.getDirectory());
+
+		handlePlayResult(playResult);
+
+		break;
+	}
 	case EXIT:
 		cout << "\nGoodbye!";
 		return;
@@ -269,4 +280,22 @@ string DisplayController::chooseFilterGenreCriteria() {
 	cin >> filterGenreCriteria;
 
 	return mediaGenres[filterGenreCriteria - 1];
+}
+
+MediaFile& DisplayController::chooseMediaFileToPlay(vector<MediaFile>& mediaList) {
+	cout << "Please choose the media file number you want to play: ";
+
+	int chosenMediaFileNumber;
+	cin >> chosenMediaFileNumber;
+
+	return mediaList[chosenMediaFileNumber - 1];
+}
+
+void DisplayController::handlePlayResult(const pair<bool, string>& playResult) {
+	if (playResult.first) {
+		cout << "Open file successfully.\n";
+	}
+	else {
+		cout << "Open file failed: " << playResult.second << "\n";
+	}
 }

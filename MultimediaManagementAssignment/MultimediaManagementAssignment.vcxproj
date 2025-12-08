@@ -135,6 +135,7 @@
     <ClCompile Include="MediaFile.cpp" />
     <ClCompile Include="MediaFilesManager.cpp" />
     <ClCompile Include="MultimediaManagementAssignment.cpp" />
+    <ClCompile Include="OpenFileService.cpp" />
     <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClInclude Include="MediaFile.h" />
     <ClInclude Include="MediaFilesManager.h" />
     <ClInclude Include="MediaType.h" />
+    <ClInclude Include="OpenFileService.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include "MediaFile.h"
 #include "FileHelper.h"
 #include "CopyService.h"
+#include "OpenFileService.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ private:
 	vector<string> _mediaGenres;
 	unique_ptr<FileHelper> _pFileHelper;
 	unique_ptr<CopyService> _pCopyService;
+	unique_ptr<OpenFileService> _pOpenFileService;
 
 	const vector<MediaFile> filterMediaFilesByType(const string& typeValue);
 	const vector<MediaFile> filterMediaFilesByGenre(const string& genreValue);
@@ -25,7 +27,7 @@ public:
 	void initialize();
 	pair<bool, string> downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress);
 	void removeMediaFile();
-	void playMediaFile();
+	pair<bool, string> playMediaFile(const string& mediaFileDirectory);
 	const vector<MediaFile> filterMediaFiles(const FilterCriteria& filterCriteria, string& filterValue);
 	const vector<MediaFile> searchMediaFiles(string& searchedString);
 	vector<MediaFile>& getAllMediaFiles();
