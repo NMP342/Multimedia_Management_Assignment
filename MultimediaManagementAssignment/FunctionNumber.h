@@ -2,8 +2,7 @@ enum FUNCTION_NUMBER {
 	EXIT,
 	DISPLAY = 1,
 	UPLOAD = 2,
-	REMOVE = 3,
-	SEARCH = 4,
-	FILTER = 5,
-	PLAY = 6,
+	SEARCH = 3,
+	FILTER = 4,
+	PLAY = 5,
 };

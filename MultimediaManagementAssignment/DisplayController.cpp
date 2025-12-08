@@ -10,10 +10,9 @@ void DisplayController::displayFunctions() {
 	cout << "=================MULTIMEDIA MANAGEMENT SYSTEM================" << '\n';
 	cout << "1. Display the media files list." << '\n';
 	cout << "2. Upload media file." << '\n';
-	cout << "3. Remove media file." << '\n';
-	cout << "4. Search media file by name." << '\n';
-	cout << "5. Filter media files list." << '\n';
-	cout << "6. Play media file." << '\n';
+	cout << "3. Search media file by name." << '\n';
+	cout << "4. Filter media files list." << '\n';
+	cout << "5. Play media file." << '\n';
 	cout << "0. Exit." << '\n';
 
 	int funcNumber = 0;

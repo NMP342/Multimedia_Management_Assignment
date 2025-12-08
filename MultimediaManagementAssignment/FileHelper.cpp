@@ -63,7 +63,7 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 			continue;
 		}
 
-		auto fields = splitStringByDelimiter(line, '|');
+		auto fields = StringHelper::splitStringByDelimiter(line, '|');
 
 		if (fields.size() != 7)
 			continue;
@@ -137,17 +137,5 @@ bool FileHelper::appendMediaFileToFile(MediaFile& mediaFile) {
 
 	outFile.close();
 	return true;
-}
-
-vector<string> FileHelper::splitStringByDelimiter(string& line, char delimiter) {
-	vector<string> tokens;
-	stringstream ss(line);
-	string item;
-
-	while (getline(ss, item, delimiter)) {
-		tokens.push_back(item);
-	}
-
-	return tokens;
 }
 

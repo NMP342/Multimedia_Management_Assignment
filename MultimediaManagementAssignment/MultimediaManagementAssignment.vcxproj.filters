@@ -78,9 +78,6 @@
     <ClCompile Include="CopyService.cpp">
       <Filter>Source Files\Service</Filter>
     </ClCompile>
-    <ClCompile Include="OpenFileService.cpp">
-      <Filter>Source Files\Service</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -111,9 +108,6 @@
       <Filter>Header Files\Model\Enum</Filter>
     </ClInclude>
     <ClInclude Include="CopyService.h">
-      <Filter>Header Files\Service</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenFileService.h">
       <Filter>Header Files\Service</Filter>
     </ClInclude>
   </ItemGroup>

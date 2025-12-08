@@ -5,7 +5,6 @@
 #include "MediaFile.h"
 #include "FileHelper.h"
 #include "CopyService.h"
-#include "OpenFileService.h"
 #include "NamedPipeClient.h"
 
 using namespace std;
@@ -15,9 +14,7 @@ private:
 	static vector<MediaFile> _mediaFiles;
 	vector<string> _mediaTypes{ "Video", "Audio" };
 	vector<string> _mediaGenres;
-	unique_ptr<FileHelper> _pFileHelper;
 	unique_ptr<CopyService> _pCopyService;
-	unique_ptr<OpenFileService> _pOpenFileService;
 	unique_ptr<NamedPipeClient> _pNamedPipeClient;
 
 	const vector<MediaFile> filterMediaFilesByType(const string& typeValue);
@@ -28,7 +25,6 @@ public:
 
 	void initialize();
 	pair<bool, string> downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress);
-	void removeMediaFile();
 	pair<bool, string> playMediaFile(MediaFile& mediaFile);
 	const vector<MediaFile> filterMediaFiles(const FilterCriteria& filterCriteria, string& filterValue);
 	const vector<MediaFile> searchMediaFiles(string& searchedString);

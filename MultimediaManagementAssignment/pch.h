@@ -19,7 +19,6 @@
 #include "MediaFilesManager.h"
 #include "DisplayController.h"
 #include "CopyService.h"
-#include "OpenFileService.h"
 #include "NamedPipeClient.h"
 
 #include "FileHelper.h"

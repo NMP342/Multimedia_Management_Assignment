@@ -9,4 +9,5 @@ class StringHelper {
 public:
 	static string toLower(string& toLowerString);
 	static string toUpperCamelCase(string& toCamelCaseString);
+	static vector<string> splitStringByDelimiter(string& line, char delimiter);
 };

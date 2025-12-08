@@ -4,12 +4,11 @@ vector<MediaFile> MediaFilesManager::_mediaFiles;
 
 MediaFilesManager::MediaFilesManager() {
 	_pCopyService = make_unique<CopyService>();
-	_pOpenFileService = make_unique<OpenFileService>();
 	_pNamedPipeClient = make_unique<NamedPipeClient>();
 }
 
 void MediaFilesManager::initialize() {
-	_pFileHelper->readMediaListFromFile(_mediaFiles);
+	FileHelper::readMediaListFromFile(_mediaFiles);
 }
 
 pair<bool, string> MediaFilesManager::downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress) {
@@ -17,11 +16,11 @@ pair<bool, string> MediaFilesManager::downloadMediaFile(string& sourceDirectory,
 
 	if (downloadResult.first) {
 		_mediaFiles.push_back(mediaFile);
-		bool appendFileResult = _pFileHelper->appendMediaFileToFile(mediaFile);
+		bool appendFileResult = FileHelper::appendMediaFileToFile(mediaFile);
 
 		if (!appendFileResult) {
 			//Need lock
-			_pFileHelper->saveMediaListToFile(_mediaFiles);
+			FileHelper::saveMediaListToFile(_mediaFiles);
 		}
 	}
 
@@ -78,8 +77,6 @@ const vector<MediaFile> MediaFilesManager::searchMediaFiles(string& searchedStri
 	return searchedMediaList;
 }
 
-void MediaFilesManager::removeMediaFile() {}
-
 pair<bool, string> MediaFilesManager::playMediaFile(MediaFile& mediaFile) {
 	string message = "PLAY|" + mediaFile.getDirectory();
 	auto playResult = _pNamedPipeClient->sendMessageToNamedPipeServer(message);
@@ -88,7 +85,7 @@ pair<bool, string> MediaFilesManager::playMediaFile(MediaFile& mediaFile) {
 		int viewNumber = mediaFile.getViewNumber() + 1;
 		mediaFile.setViewNumber(viewNumber);
 
-		_pFileHelper->saveMediaListToFile(_mediaFiles);
+		FileHelper::saveMediaListToFile(_mediaFiles);
 	}
 
 	return playResult;
