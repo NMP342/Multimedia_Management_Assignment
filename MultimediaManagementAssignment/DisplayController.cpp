@@ -178,7 +178,7 @@ string DisplayController::chooseDestinationMediaFileGenre(MediaFile& mediaFile, 
 }
 
 string DisplayController::createMediaFileDestinationDirectory(const string& mediaType, const string& mediaGenre) {
-	string destinationDirectory = ROOTPATH;
+	string destinationDirectory = FileHelper::getRootPath();
 	destinationDirectory += "\\" + mediaType + "\\" + mediaGenre;
 
 	return destinationDirectory;

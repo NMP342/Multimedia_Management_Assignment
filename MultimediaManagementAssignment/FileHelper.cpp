@@ -1,10 +1,27 @@
 #include "pch.h"
 
+string FileHelper::_filePath;
+string FileHelper::_rootPath;
+
+void FileHelper::initializeMediaFiles(vector<MediaFile>& mediaList) {
+	string filePath = getFilePath();
+
+	if (!fs::exists(filePath)) {
+		string rootPath = getRootPath();
+
+		readMediaFilesFromRootPath(mediaList);
+		saveMediaListToFile(mediaList);
+	}
+	else {
+		readMediaListFromFile(mediaList);
+	}
+}
 
 void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 	mediaList.clear();
 
-	for (const auto& typeEntry : fs::directory_iterator(ROOTPATH))
+	string rootPath = getRootPath();
+	for (const auto& typeEntry : fs::directory_iterator(rootPath))
 	{
 		if (!typeEntry.is_directory())
 			continue;
@@ -34,8 +51,8 @@ void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 				file.setName(fileName);
 				file.setSize(size);
 				file.setViewNumber(viewNumber);
-				file.setType(fileType); // Video / Audio
-				file.setGenre(genre);       // Horror / Action / Rock
+				file.setType(fileType); 
+				file.setGenre(genre);
 				file.setDescription(description);
 				file.setDirectory(directory);
 
@@ -46,11 +63,12 @@ void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 }
 
 void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
-	std::ifstream inFile(FILEPATH);
+	string filePath = getFilePath();
 
+	std::ifstream inFile(filePath);
 	if (!inFile.is_open())
 	{
-		std::cerr << FILEPATH << '\n';
+		std::cerr << filePath << '\n';
 		std::cerr << "Cannot open file for reading!\n";
 		return;
 	}
@@ -80,8 +98,8 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 		file.setName(name);
 		file.setSize(size);
 		file.setViewNumber(viewNumber);
-		file.setType(type); // Video / Audio
-		file.setGenre(genre);       // Horror / Action / Rock
+		file.setType(type);
+		file.setGenre(genre);
 		file.setDescription(description);
 		file.setDirectory(directory);
 
@@ -93,11 +111,12 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 
 void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 {
-	std::ofstream outFile(FILEPATH);
+	string filePath = getFilePath();
+	std::ofstream outFile(filePath);
 
 	if (!outFile.is_open())
 	{
-		std::cerr << FILEPATH << '\n';
+		std::cerr << filePath << '\n';
 		std::cerr << "Cannot open file for writing!\n";
 		return;
 	}
@@ -118,11 +137,12 @@ void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 }
 
 bool FileHelper::appendMediaFileToFile(MediaFile& mediaFile) {
-	ofstream outFile(FILEPATH, std::ios::out | std::ios::app);
+	string filePath = getFilePath();
+	ofstream outFile(filePath, std::ios::out | std::ios::app);
 
 	if (!outFile)
 	{
-		std::cerr << "Cannot open file for appending: " << FILEPATH << '\n';
+		std::cerr << "Cannot open file for appending: " << filePath << '\n';
 		return false;
 	}
 
@@ -137,5 +157,29 @@ bool FileHelper::appendMediaFileToFile(MediaFile& mediaFile) {
 
 	outFile.close();
 	return true;
+}
+
+string FileHelper::getFilePath() {
+	if (!_filePath.empty()) {
+		return _filePath;
+	}
+
+	string currentPath = fs::current_path().parent_path().string() + "\\";
+	currentPath += FILEPATH;
+	_filePath = currentPath;
+
+	return _filePath;
+}
+
+string FileHelper::getRootPath() {
+	if (!_rootPath.empty()) {
+		return _rootPath;
+	}
+
+	string currentPath = fs::current_path().parent_path().string() + "\\";
+	currentPath += ROOTPATH;
+	_rootPath = currentPath;
+
+	return _rootPath;
 }
 

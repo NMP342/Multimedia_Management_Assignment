@@ -8,7 +8,7 @@ MediaFilesManager::MediaFilesManager() {
 }
 
 void MediaFilesManager::initialize() {
-	FileHelper::readMediaListFromFile(_mediaFiles);
+	FileHelper::initializeMediaFiles(_mediaFiles);
 }
 
 pair<bool, string> MediaFilesManager::downloadMediaFile(string& sourceDirectory, string& destinationDirectory, MediaFile& mediaFile, function<void(uint64_t copied, uint64_t total)> showProgress) {

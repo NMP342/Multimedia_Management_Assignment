@@ -1,5 +1,5 @@
 ﻿  FileHelper.cpp
-  MediaFile.cpp
-  MultimediaManagementAssignment.cpp
+  MediaFilesManager.cpp
   Generating Code...
-  MultimediaManagementAssignment.vcxproj -> D:\C_Plus_Projects\MultimediaManagementAssignment\x64\Debug\MultimediaManagementAssignment.exe
+C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\MultimediaManagementAssignment\MediaFilesManager.cpp(38,1): warning C4715: 'MediaFilesManager::filterMediaFiles': not all control paths return a value
+  MultimediaManagementAssignment.vcxproj -> C:\Users\Chuong\Documents\C_Plus_Projects\Multimedia_Management_Assignment\x64\Debug\MultimediaManagementAssignment.exe
