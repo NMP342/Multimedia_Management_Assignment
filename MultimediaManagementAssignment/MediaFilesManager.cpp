@@ -144,6 +144,10 @@ const vector<string> MediaFilesManager::getMediaGenresByType(const string& media
 }
 
 void MediaFilesManager::addNewGenre(const string& newGenre) {
+	if (_mediaGenres.size() == 0) {
+		_mediaGenres = getAllMediaGenres();
+	}
+
 	_mediaGenres.push_back(newGenre);
 }
 
