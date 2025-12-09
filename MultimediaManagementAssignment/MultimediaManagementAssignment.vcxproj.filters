@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Communication">
       <UniqueIdentifier>{d900802c-6791-4675-86df-50e0b0c5224c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Worker">
+      <UniqueIdentifier>{dd7d0edb-3c8c-474c-b8a7-3217331fd793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Worker">
+      <UniqueIdentifier>{8e0066c8-4ae7-490d-b6c8-c65c543fec47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MultimediaManagementAssignment.cpp">
@@ -78,6 +84,9 @@
     <ClCompile Include="CopyService.cpp">
       <Filter>Source Files\Service</Filter>
     </ClCompile>
+    <ClCompile Include="FileSaveWorker.cpp">
+      <Filter>Source Files\Worker</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -109,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="CopyService.h">
       <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSaveWorker.h">
+      <Filter>Header Files\Worker</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

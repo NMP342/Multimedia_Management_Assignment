@@ -187,7 +187,6 @@ string DisplayController::createMediaFileDestinationDirectory(const string& medi
 void DisplayController::inputMediaFileDescription(MediaFile& mediaFile) {
 	cout << "Please enter the media file description.\n";
 
-	cin.ignore();
 	string mediaFileDescription;
 	getline(cin, mediaFileDescription);
 	mediaFile.setDescription(mediaFileDescription);

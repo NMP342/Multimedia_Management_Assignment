@@ -131,6 +131,7 @@
     <ClCompile Include="CopyService.cpp" />
     <ClCompile Include="DisplayController.cpp" />
     <ClCompile Include="FileHelper.cpp" />
+    <ClCompile Include="FileSaveWorker.cpp" />
     <ClCompile Include="FunctionNumber.h" />
     <ClCompile Include="MediaFile.cpp" />
     <ClCompile Include="MediaFilesManager.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="DisplayController.h" />
     <ClInclude Include="EnumHelper.h" />
     <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="FileSaveWorker.h" />
     <ClInclude Include="FilterCriteria.h" />
     <ClInclude Include="MediaFile.h" />
     <ClInclude Include="MediaFilesManager.h" />

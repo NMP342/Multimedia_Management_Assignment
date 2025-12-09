@@ -111,6 +111,9 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 
 void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 {
+	//this_thread::sleep_for(chrono::milliseconds(20000));
+	//cout << "Start save files.\n";
+
 	string filePath = getFilePath();
 	std::ofstream outFile(filePath);
 

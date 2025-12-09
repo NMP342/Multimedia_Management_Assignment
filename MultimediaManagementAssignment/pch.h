@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <filesystem>
+#include <thread>
 #include <windows.h>
 #include <shellapi.h>
 
@@ -20,6 +21,7 @@
 #include "DisplayController.h"
 #include "CopyService.h"
 #include "NamedPipeClient.h"
+#include "FileSaveWorker.h"
 
 #include "FileHelper.h"
 #include "StringHelper.h"

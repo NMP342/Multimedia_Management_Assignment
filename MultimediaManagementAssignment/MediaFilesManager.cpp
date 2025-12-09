@@ -5,6 +5,7 @@ vector<MediaFile> MediaFilesManager::_mediaFiles;
 MediaFilesManager::MediaFilesManager() {
 	_pCopyService = make_unique<CopyService>();
 	_pNamedPipeClient = make_unique<NamedPipeClient>();
+	_pFileSaveWorker = make_unique<FileSaveWorker>();
 }
 
 void MediaFilesManager::initialize() {
@@ -19,8 +20,8 @@ pair<bool, string> MediaFilesManager::downloadMediaFile(string& sourceDirectory,
 		bool appendFileResult = FileHelper::appendMediaFileToFile(mediaFile);
 
 		if (!appendFileResult) {
-			//Need lock
-			FileHelper::saveMediaListToFile(_mediaFiles);
+			FileSaveWorker::_saveFileCommandId++;
+			_pFileSaveWorker->requestSave(FileSaveWorker::_saveFileCommandId, _mediaFiles);
 		}
 	}
 
@@ -85,7 +86,8 @@ pair<bool, string> MediaFilesManager::playMediaFile(MediaFile& mediaFile) {
 		int viewNumber = mediaFile.getViewNumber() + 1;
 		mediaFile.setViewNumber(viewNumber);
 
-		FileHelper::saveMediaListToFile(_mediaFiles);
+		FileSaveWorker::_saveFileCommandId++;
+		_pFileSaveWorker->requestSave(FileSaveWorker::_saveFileCommandId, _mediaFiles);
 	}
 
 	return playResult;
