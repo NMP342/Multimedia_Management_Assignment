@@ -32,7 +32,7 @@ void DisplayController::executeFunction(const int& funcNumber) {
 		MediaFile mediaFile{};
 		string sourceDirectory = inputMediaFileSourceDirectory();
 		string mediaFileType = chooseDestinationMediaFileType(mediaFile);
-		string mediaFileGenre = chooseDestinationMediaFileGenre(mediaFile);
+		string mediaFileGenre = chooseDestinationMediaFileGenre(mediaFile, mediaFileType);
 		string destinationDirectory = createMediaFileDestinationDirectory(mediaFileType, mediaFileGenre);
 		inputMediaFileDescription(mediaFile);
 
@@ -143,8 +143,8 @@ string DisplayController::chooseDestinationMediaFileType(MediaFile& mediaFile) {
 	}
 }
 
-string DisplayController::chooseDestinationMediaFileGenre(MediaFile& mediaFile) {
-	const vector<string> mediaGenres = _pMediaFileManager->getAllMediaGenres();
+string DisplayController::chooseDestinationMediaFileGenre(MediaFile& mediaFile, const string& type) {
+	const vector<string> mediaGenres = _pMediaFileManager->getMediaGenresByType(type);
 
 	int genreNumber = 1;
 	for (const auto& genre : mediaGenres) {
@@ -165,6 +165,8 @@ string DisplayController::chooseDestinationMediaFileGenre(MediaFile& mediaFile) 
 
 		string mediaGenre = StringHelper::toUpperCamelCase(newGenre);
 		mediaFile.setGenre(mediaGenre);
+
+		_pMediaFileManager->addNewGenre(mediaGenre);
 
 		return mediaGenre;
 	}

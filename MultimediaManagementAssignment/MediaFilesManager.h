@@ -31,4 +31,6 @@ public:
 	vector<MediaFile>& getAllMediaFiles();
 	const vector<string>& getAllMediaTypes();
 	const vector<string>& getAllMediaGenres();
+	const vector<string> getMediaGenresByType(const string& mediaType);
+	void addNewGenre(const string& newGenre);
 };

@@ -120,3 +120,28 @@ const vector<string>& MediaFilesManager::getAllMediaGenres() {
 	return _mediaGenres;
 }
 
+const vector<string> MediaFilesManager::getMediaGenresByType(const string& mediaType)
+{
+	set<string> mediaGenresSet;
+	for (auto& media : _mediaFiles)
+	{
+		if (media.getType() == mediaType) {
+			if (!media.getGenre().empty())
+			{
+				mediaGenresSet.insert(media.getGenre());
+			}
+		}
+	}
+
+	vector<string> mediaGenresByType;
+	for (auto& genre : mediaGenresSet) {
+		mediaGenresByType.push_back(genre);
+	}
+
+	return mediaGenresByType;
+}
+
+void MediaFilesManager::addNewGenre(const string& newGenre) {
+	_mediaGenres.push_back(newGenre);
+}
+

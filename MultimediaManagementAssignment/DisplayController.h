@@ -12,7 +12,7 @@ private:
 
 	string inputMediaFileSourceDirectory();
 	string chooseDestinationMediaFileType(MediaFile& mediaFile);
-	string chooseDestinationMediaFileGenre(MediaFile& mediaFile);
+	string chooseDestinationMediaFileGenre(MediaFile& mediaFile, const string& type);
 	string createMediaFileDestinationDirectory(const string& mediaType, const string& mediaGenre);
 	void inputMediaFileDescription(MediaFile& mediaFile);
 	void showProgress(uint64_t copied, uint64_t total);
