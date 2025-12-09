@@ -1,5 +1,7 @@
 #pragma once
 
+#include <mutex>
+
 using namespace std;
 
 class FileHelper {
@@ -15,4 +17,5 @@ public:
 private:
 	static string _filePath;
 	static string _rootPath;
+	static mutex _mutex;
 };

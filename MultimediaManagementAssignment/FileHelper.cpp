@@ -2,6 +2,7 @@
 
 string FileHelper::_filePath;
 string FileHelper::_rootPath;
+mutex FileHelper::_mutex;
 
 void FileHelper::initializeMediaFiles(vector<MediaFile>& mediaList) {
 	string filePath = getFilePath();
@@ -63,6 +64,8 @@ void FileHelper::readMediaFilesFromRootPath(vector<MediaFile>& mediaList) {
 }
 
 void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
+	lock_guard<mutex> lock(_mutex);
+
 	string filePath = getFilePath();
 
 	std::ifstream inFile(filePath);
@@ -111,6 +114,8 @@ void FileHelper::readMediaListFromFile(vector<MediaFile>& mediaList) {
 
 void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 {
+	lock_guard<mutex> lock(_mutex);
+
 	//this_thread::sleep_for(chrono::milliseconds(20000));
 	//cout << "Start save files.\n";
 
@@ -140,6 +145,8 @@ void FileHelper::saveMediaListToFile(const vector<MediaFile>& mediaList)
 }
 
 bool FileHelper::appendMediaFileToFile(MediaFile& mediaFile) {
+	lock_guard<mutex> lock(_mutex);
+
 	string filePath = getFilePath();
 	ofstream outFile(filePath, std::ios::out | std::ios::app);
 
