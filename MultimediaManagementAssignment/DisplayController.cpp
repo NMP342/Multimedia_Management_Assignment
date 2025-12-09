@@ -7,7 +7,7 @@ DisplayController::DisplayController() {
 
 void DisplayController::displayFunctions() {
 	cout << "\n";
-	cout << "=================MULTIMEDIA MANAGEMENT SYSTEM================" << '\n';
+	cout << "=================MULTIMEDIA MANAGEMENT SYSTEM================" << "\n\n";
 	cout << "1. Display the media files list." << '\n';
 	cout << "2. Upload media file." << '\n';
 	cout << "3. Search media file by name." << '\n';
@@ -90,17 +90,47 @@ void DisplayController::displayMediaList(vector<MediaFile>& mediaList) {
 	}
 
 	int mediaNumber = 1;
-	for (auto file : mediaList)
-	{
-		cout << mediaNumber++ << ".\n";
-		cout << "----------------------\n";
-		cout << "Name       : " << file.getName() << "\n";
-		cout << "Size (KB)  : " << file.getSize() << "\n";
-		cout << "View       : " << file.getViewNumber() << "\n";
-		cout << "Type       : " << file.getType() << "\n";
-		cout << "Genre      : " << file.getGenre() << "\n";
-		cout << "Description: " << file.getDescription() << "\n\n";
+
+	// ====== Header ======
+	cout << left
+		<< setw(7) << "Number" << " | "
+		<< setw(35) << "Name" << " | "
+		<< setw(10) << "Size(KB)" << " | "
+		<< setw(8) << "Views" << " | "
+		<< setw(10) << "Type" << " | "
+		<< setw(10) << "Genre" << " | "
+		<< setw(20) << "Description"
+		<< "\n";
+
+	// ====== Separator ======
+	cout << string(7, '-') << "-+-"
+		<< string(35, '-') << "-+-"
+		<< string(10, '-') << "-+-"
+		<< string(8, '-') << "-+-"
+		<< string(10, '-') << "-+-"
+		<< string(10, '-') << "-+-"
+		<< string(20, '-')
+		<< "\n";
+
+	// ====== Rows ======
+	for (auto& file : mediaList) {
+		cout << left
+			<< setw(7) << mediaNumber++ << " | "
+			<< setw(35) << fitText(file.getName(), 35) << " | "
+			<< setw(10) << file.getSize() << " | "
+			<< setw(8) << file.getViewNumber() << " | "
+			<< setw(10) << fitText(file.getType(), 10) << " | "
+			<< setw(10) << fitText(file.getGenre(), 10) << " | "
+			<< setw(20) << fitText(file.getDescription(), 20)
+			<< "\n";
 	}
+}
+
+string DisplayController::fitText(const string& text, size_t width)
+{
+	if (text.length() <= width)
+		return text;
+	return text.substr(0, width - 3) + "...";
 }
 
 string DisplayController::inputMediaFileSourceDirectory() {

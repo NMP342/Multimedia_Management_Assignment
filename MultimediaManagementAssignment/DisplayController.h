@@ -24,4 +24,5 @@ private:
 	string chooseFilterGenreCriteria();
 	MediaFile& chooseMediaFileToPlay(vector<MediaFile>& mediaList);
 	void handlePlayResult(const pair<bool, string>& playResult);
+	string fitText(const string& text, size_t width);
 };
